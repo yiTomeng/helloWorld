@@ -2,24 +2,31 @@ title: localtime和localtime_r及相关时间处理结构体和相关函数
 date: 2015-01-28 15:44:47
 tags: C
 ---
+##一.相关结构体
+###1、time_t
+time_t实际上是长整数类型，定义为：
 
-1、time_t
-time_t实际上是长整数类型，定义为：'''typedef long time_t; /* time value */'''
+```C
+typedef long time_t; /* time value */
+```
  
-2、timeval
+###2、timeval
 timeval是一个结构体，在time.h中定义为：
-'''
+
+```C
 struct timeval
 {
      __time_t tv_sec;                /* Seconds. */
      __suseconds_t tv_usec;      /* Microseconds. */
 };
-'''
+```
+
 其中，tv_sec为Epoch（1970-1-1零点零分）到创建struct timeval时的秒数，tv_usec为微秒数，即秒后面的零头。
  
-3、tm
+###3、tm
 tm是一个结构体，定义为：
-'''
+
+```C
 struct tm
 {
     int tm_sec;      /*代表目前秒数，正常范围为0-59，但允许至61秒 */
@@ -32,14 +39,16 @@ struct tm
     int tm_yday;   /* Days in year.[0-365] */
     int tm_isdst;   /*日光节约时间的旗标DST. [-1/0/1]*/
 };
- '''
-二、具体操作函数
+ ```
+
+##二、具体操作函数
 time()函数
 　　原 型：time_t time(time_t * timer)
 　　功 能: 获取当前的系统时间，返回的结果是一个time_t类型，其实就是一个大整数，其值表示从CUT（Coordinated Universal Time）时间1970年1月1日00:00:00（称为UNIX系统的Epoch时间）到当前时刻的秒数。然后调用localtime将time_t所表示的CUT时间转换为本地时间（我们是+8区，比CUT多8个小时）并转成struct tm类型，该类型的各数据成员分别表示年月日时分秒。
 　程序例1:
 　　time函数获得日历时间。日历时间，是用“从一个标准时间点到此时的时间经过的秒数”来表示的时间。这个标准时间点对不同的编译器来说会有所不同，但对一个编译系统来说，这个标准时间点是不变的，该编译系统中的时间对应的日历时间都通过该标准时间点来衡量，所以可以说日历时间是“相对时间”，但是无论你在哪一个时区，在同一时刻对同一个标准时间点来说，日历时间都是一样的。
-'''
+
+```C
 　　#include <time.h>
 　　#include <stdio.h>
 　　#include <dos.h>
@@ -49,10 +58,12 @@ time()函数
 　　printf("The number of seconds since January 1, 1970 is %ld",t);
 　　return 0;
 　　}
-'''
+```
+
 　程序例2：
 　　//time函数也常用于随机数的生成，用日历时间作为种子。
-'''
+
+```C
 　　#include <stdio.h>
 　　#include <time.h>
 　　#include<stdlib.h>
@@ -65,10 +76,12 @@ time()函数
 　　　printf("%d\n",rand()%100);
 　　return 0;
 　　}
-'''
+```
+
 　程序例3：
 　　用time()函数结合其他函数（如：localtime、gmtime、asctime、ctime）可以获得当前系统时间或是标准时间。
-'''
+
+```C
 　　#include <stdio.h>
 　　#include <stddef.h>
 　　#include <time.h>
@@ -81,14 +94,16 @@ time()函数
 　　printf("Local time is: %s\n",asctime(tblock));
 　　return 0;
 　　}
- '''
+ ```
+
 gmtime()函数
 　　原 型：struct tm *gmtime(long *clock);
 　　功 能：把日期和时间转换为格林威治(GMT)时间的函数。将参数timep 所指的time_t 结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。 
 　　说 明：此函数返回的时间日期未经时区转换，而是UTC时间。
 　　返回值：返回结构tm代表目前UTC 时间
 程序例
-'''
+
+```C
 　　#include "stdio.h"
 　　#include "time.h"
 　　#include "stdlib.h"
@@ -104,7 +119,8 @@ gmtime()函数
 　　printf("GMT is: %s", asctime(gmt));
 　　return 0;
 　　}
-'''
+```
+
 localtime()函数
 　　功 能: 把从1970-1-1零点零分到当前时间系统所偏移的秒数时间转换为日历时间 。
 　　说 明：此函数获得的tm结构体的时间，是已经进行过时区转化为本地时间。
@@ -112,7 +128,8 @@ localtime()函数
 　　返回值：返回指向tm 结构体的指针.tm结构体是time.h中定义的用于分别存储时间的各个量(年月日等)
 的结构体.
  程序例1:
-'''
+
+```C
 　　#include <stdio.h>
 　　#include <stddef.h>
 　　#include <time.h>
@@ -125,13 +142,15 @@ localtime()函数
 　　printf("Local time is: %s\n",asctime(tblock));
 　　return 0;
 　　}
-'''
+```
+
 　　执行结果：
 　　Local time is: Mon Feb 16 11:29:26 2009
 程序例2：
 　　上面的例子用了asctime函数，下面这个例子不使用这个函数一样能获取系统当前时间。
         需要注意的是年份加上1900，月份加上1。
-   '''
+
+   ```C
 　　#include<time.h>
 　　#include<stdio.h>
 　　int main()
@@ -144,16 +163,19 @@ localtime()函数
                t->tm_year+1900,t->tm_mon+1,t->tm_mday,t->tm_hour,t->tm_min,t->tm_sec);
 　　return 0;
 　　}
-'''
+```
+
 localtime()和gmtime()的区别：
 　　gmtime()函数功能类似获取当前系统时间，只是获取的时间未经过时区转换。
 　　localtime函数获得的tm结构体的时间，是已经进行过时区转化为本地时间。
  
 localtime_r()和gmtime_r()函数
-'''
+
+```C
 　　struct tm *gmtime_r(const time_t *timep, struct tm *result); 
 　　struct tm *localtime_r(const time_t *timep, struct tm *result);
-'''
+```
+
 　　gmtime_r()函数功能与此相同，但是它可以将数据存储到用户提供的结构体中。
 　　localtime_r()函数功能与此相同，但是它可以将数据存储到用户提供的结构体中。它不需要设置tzname。
 　　使用gmtime和localtime后要立即处理结果，否则返回的指针指向的内容可能会被覆盖。
