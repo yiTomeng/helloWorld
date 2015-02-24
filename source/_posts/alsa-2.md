@@ -11,5 +11,5 @@ alsaは「Advanced Linux Sound Architecture」の略称である。これはサ�
 
 ##三、alsaの仕組みにおいて、簡単な説明
 alsaはlinuxのコンポーネントであることを特に知っているはずなので、linuxの特徴を持っているに決まっているなのでしょう。linuxには、ハードウェアに対して、ドライバーが必要となるのは当然だ(ほかのOSも同じだろうね）。だから、alsa driverを提供している(open source）。なぜalsaは人気になるのか？その１つはアプリAPIを提供すること。alsa libをインストールしてから、alsaのAPIを使うことができる。(僕の環境「asianux」には、最初から搭載しているので、わざわざインストール必要はない。alsa libのインストールに関しては、別途記載するかもしれない）。alsaの仕組みは以下の画像のように：
-![alsa arch](/pic/alsa仕組み1)
+![alsa arch](/pic/alsa-arch1.png)
 
