@@ -10,5 +10,6 @@ linux音声再生の一つOSSは前編で説明した。確かにOSSを利用し
 alsaは「Advanced Linux Sound Architecture」の略称である。これはサウンドカードのデバイスドライバを提供するOpen Sound System (OSS)を置き換えるために開発されたLinuxカーネルコンポーネントである。ALSAプロジェクトの初期の目標は、サウンドカードハードウェアの自動設定や、複数のサウンドデバイスのスマートな取扱いなどであったが、それらは概ね達成された。開発になかなか関係なく詳しい内容は[alsa wiki](http://ja.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture)
 
 ##三、alsaの仕組みにおいて、簡単な説明
-alsaはlinuxのコンポーネントであることを特に知っているはずなので、linuxの特徴を持っているに決まっているなのでしょう。linuxには、ハードウェアに対して、ドライバーが必要となるのは当然だ(ほかのOSも同じだろうね）。だから、alsa driverを提供している(open source）。なぜalsaは人気になるのか？その１つはアプリAPIを提供すること。alsa libをインストールしてから、alsaのAPIを使うことができる。(僕の環境「asianux」には、最初から搭載しているので、わざわざインストール必要はない。alsa libのインストールに関しては、別途記載するかもしれない）。
+alsaはlinuxのコンポーネントであることを特に知っているはずなので、linuxの特徴を持っているに決まっているなのでしょう。linuxには、ハードウェアに対して、ドライバーが必要となるのは当然だ(ほかのOSも同じだろうね）。だから、alsa driverを提供している(open source）。なぜalsaは人気になるのか？その１つはアプリAPIを提供すること。alsa libをインストールしてから、alsaのAPIを使うことができる。(僕の環境「asianux」には、最初から搭載しているので、わざわざインストール必要はない。alsa libのインストールに関しては、別途記載するかもしれない）。alsaの仕組みは以下の画像のように：
+![alsa arch](/pic/alsa仕組み1)
 
