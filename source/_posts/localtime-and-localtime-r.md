@@ -2,15 +2,16 @@ title: localtime和localtime_r及相关时间处理结构体和相关函数
 date: 2015-01-28 15:44:47
 tags: C
 ---
-##一.相关结构体
-###1、time_t
+
+## 一、相关结构体
+### 1、time_t
 time_t实际上是长整数类型，定义为：
 
 ```C
 typedef long time_t; /* time value */
 ```
  
-###2、timeval
+### 2、timeval
 timeval是一个结构体，在time.h中定义为：
 
 ```C
@@ -23,7 +24,7 @@ struct timeval
 
 其中，tv_sec为Epoch（1970-1-1零点零分）到创建struct timeval时的秒数，tv_usec为微秒数，即秒后面的零头。
  
-###3、tm
+### 3、tm
 tm是一个结构体，定义为：
 
 ```C
@@ -41,7 +42,8 @@ struct tm
 };
  ```
 
-##二、具体操作函数
+## 二、具体操作函数
+
 time()函数
 　　原 型：time_t time(time_t * timer)
 　　功 能: 获取当前的系统时间，返回的结果是一个time_t类型，其实就是一个大整数，其值表示从CUT（Coordinated Universal Time）时间1970年1月1日00:00:00（称为UNIX系统的Epoch时间）到当前时刻的秒数。然后调用localtime将time_t所表示的CUT时间转换为本地时间（我们是+8区，比CUT多8个小时）并转成struct tm类型，该类型的各数据成员分别表示年月日时分秒。
