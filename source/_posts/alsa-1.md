@@ -25,7 +25,7 @@ tags: linux
     以上の説明の通り、OSSを使うと、以上の三つを設定しなければならない。（OSSの使い方は簡単だから、直ちに例を挙げる）
     ⅰ.sound_lib.c:
 
-'''
+```C
 /******************************************************************************
 * SYSTEM       :   音声放送LIB
 * PROGRAM      :   放送を行うライブラリ
@@ -46,7 +46,7 @@ tags: linux
 #include <linux/soundcard.h>
 #include "sound_lib.h"
 
-//#define HEADER_BUFSIZE		36												//ヘッダファイルのバッファサイズ
+//#define HEADER_BUFSIZE		36											//ヘッダファイルのバッファサイズ
 #define BUFSIZE				64000											//ファイル読み込む用バッファサイズ
 #define ERR_MSG_SIZE		64
 //#define FILENAME_SIZE		32												//ファイル名バッファサイズ
@@ -58,7 +58,7 @@ typedef struct
 char	chunk_id[4];													//識別子"RIFF"
 int		chunk_size;														//ファイルのサイズ(識別子"RIFF"と自分を除く)
 char 	format[4];														//フォーマット部("WAVE")
-char 	sub_chunk_id[4];												//識別子"fmt "
+char 	sub_chunk_id[4];												//識別子"fmt"
 int  	sub_chunk_size;													//この後のファイルのサイズ
 short 	audio_format;													//音声のフォーマット(1:PCM 　1以外は他の圧縮ファイル)
 short 	num_channels;													//チャンネル
@@ -556,12 +556,11 @@ break;
 return ret;
 }
 
-'''
+```
 
     ⅱ.sound_lib.h:
 
-'''
-
+```C
 #ifndef SOUND_LIB
 #define SOUND_LIB
 
@@ -613,11 +612,10 @@ extern int close_voice_device(int *dsp);
 
 #endif
 
-'''
-
+```
     ⅲ.sound_test.c
 
-'''
+```
 /******************************************************************************
 * SYSTEM       :   音声放送LIB テスト
 * PROGRAM      :   放送を行うライブラリ
@@ -694,6 +692,6 @@ close_voice_device(&dsp);
 return 0;
 }
 
-'''
+```
 
 以上の例は簡単で作ったものなので、よくないかもしれないが、中身をみて、OSSはどういう風に使えるかがわかるはずだ。
