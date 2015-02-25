@@ -10,7 +10,8 @@ C++中的函数默认形参设置有三种类型：
 3.声明时和定义时都定义
 
 第一种情况：只在声明函数时定义，代码如下：
-<pre><code>
+
+```C
 	#include <iostream>
 	using namespace std;
 
@@ -29,12 +30,14 @@ C++中的函数默认形参设置有三种类型：
 	{
 		return (a + b);
 	}
-</code></pre>
+```
+
 这种情况下运行正常。
 
 第二种情形：只在定义函数时定义。这种情况又可以分为两种：
 --1.函数定义在函数调用之前，代码如下：
-<pre><code>
+
+```C
 	#include <iostream>
 	using namespace std;
 
@@ -53,11 +56,13 @@ C++中的函数默认形参设置有三种类型：
 	
 		return 0;
 	}	
-</code></pre>
+```
+
 这时运行是没有问题，调用的时候可以知道定义时有设置默认的形参。
 
 --2.函数定义在函数调用之后，代码如下：
-<pre><code>
+
+```C
 	#include <iostream>
 	using namespace std;
 
@@ -76,11 +81,13 @@ C++中的函数默认形参设置有三种类型：
 	{
 		return (a + b);
 	}
-</code></pre>
+```
+
 这样的代码执行的时候，由于定义在函数调用之后，会出现函数参数不足的错误。
 
 第三种情形是两者同时定义，代码如下：
-<pre><code>
+
+```C
 	#include <iostream>
 	using namespace std;
 
@@ -99,22 +106,26 @@ C++中的函数默认形参设置有三种类型：
 	{
 		return (a + b);
 	}
-</code></pre>
+```
+
 这几行代码会导致函数定义处报错，提示之前声明处已定义。
 
 从上可以看出，虽然C++可以轻松实现带默认形参值的函数，可是必须得遵循一些准则：声明和定义必须只能有一方定义，且定义形参默认值的一方必须在调用函数之前。
 
 C语言就没那么好运了，它默认不支持对函数的形参设置默认值，那么该如何实现呢？
 在网上调查的结果就是：用宏来实现，代码如下：
-<pre><code>
+
+```C
 #define DEFAULT_PLAY_TIMES 1														//デフォルト再生回数：1回
 
 #define play_wave_default(filename) play_wave(filename, DEFAULT_PLAY_TIMES)			//デフォルト再生回数の関数
 
 extern int play_wave(const char *filename, int refresh_times);						//wavファイルを再生する関数
-</code></pre>
+```
+
 上面的例子可能有些牵强，只是替换了函数而已，调用的时候变成调用别的函数，下面摘取一个网上的例子：
-<pre><code>
+
+```C
 	#include <stdio.h>
 	#define DEFAULT 40      /*默认参数值*/
 	#define FUN(A) fun(#A##"-")    /*用于实现默认参数的宏*/
@@ -138,4 +149,5 @@ extern int play_wave(const char *filename, int refresh_times);						//wavファ�
 	 FUN(67);
 	 return 0;
 	}
-</code></pre>
+```
+
