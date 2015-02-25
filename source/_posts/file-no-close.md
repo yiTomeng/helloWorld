@@ -79,9 +79,11 @@ int main(int argc, char *argv[])
 	return 0;
 }
 ```
+
 この例には、毎回最後にfclose()呼び出していないせいで、セグメンテーション違反になっていしまう。
 
 ③：
+
 ```C
 #include <stdio.h>
 #include <stdlib.h>
