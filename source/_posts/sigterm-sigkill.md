@@ -1,6 +1,6 @@
 title: SIGTERM と SIGKILLの何年ぶりの初対面
 date: 2015-02-27 10:02:29
-tags: linux
+tags: linux開発
 ---
 
 linuxにはたくさんシグナルがあるだろう。その中にSIGTERMとSIGKILLはどこが違うのかを気になってて、とりあえず簡単で記載しとく。

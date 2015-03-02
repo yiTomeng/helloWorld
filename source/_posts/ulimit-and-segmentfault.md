@@ -1,6 +1,6 @@
 title: ulimitの説明　と　セグメンテーション違反
 date: 2015-02-26 09:27:54
-tags: linux
+tags: linux開発
 ---
 
 ##はじめに

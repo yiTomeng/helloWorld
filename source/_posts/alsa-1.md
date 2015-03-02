@@ -1,6 +1,6 @@
 title: alsaの勉強（1）ーー OSS
 date: 2015-02-20 09:59:19
-tags: linux
+tags: linux開発
 ---
 最近linux上の音声再生方法を集中しているけど、未だに全部わかっているわけではないけど、とりあえずメモしておく。
 最初の時、linux上の音声再生方法を調べたところ、OSSというものがある。OSSは「Open Sound System」の略称である。

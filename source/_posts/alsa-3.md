@@ -1,6 +1,6 @@
 title: alsaの勉強(3)ーーalsa API紹介
 date: 2015-03-01 16:25:29
-tags: linux
+tags: linux開発
 ---
 
 前回[alsaの勉強(2)](http://yitomeng.github.io/2015/03/01/alsa-2/)にはalsaの仕組みは簡単で説明した。その中、ソフトウェア開発者(アプリ開発者とは一番似合うかな。open source開発者には全体把握しないと、役に立たないだろう）には一番重要なのは、libにあるAPIとのものだ。APIウェブサイトはこれだ：[alsa API](http://www.alsa-project.org/alsa-doc/alsa-lib/group___p_c_m.html)

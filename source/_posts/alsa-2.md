@@ -1,6 +1,6 @@
 title: alsaの勉強（2）ーー alsaについて簡単な説明
 date: 2015-03-01 16:01:59
-tags: linux
+tags: linux開発
 ---
 
 ##一、はじめに
