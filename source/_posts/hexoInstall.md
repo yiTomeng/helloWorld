@@ -1,6 +1,6 @@
 title: hexo Install
 date: 2015-01-27 09:58:36
-tags:　hexo Install
+tags: ツールインストール
 ---
 こんにちは、エンジニアののびすけです。静的サイトをいやらしい風にtypoする今日この頃です。
 
