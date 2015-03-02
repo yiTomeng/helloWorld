@@ -9,7 +9,8 @@ tags: C++
 
 
 先贴一下代码：
-```
+
+```C
 #include<iostream>
 using namespace std;
 
@@ -71,6 +72,7 @@ int main(int , char **)                       //C++には、関数の引数に�
     return 0;
 }
 ```
+
 在这个测试中，
 1.首先int main(int , char **)                                        
 这一行，定义的时候也未 对 形 参 命 名，之 前 的 博 客 中 好 像 有 写 到 ，C + + 的 一 个 特 别 之 处就 是 在 不 使 用形 参 的 情况 下 ， 定义 函 数 的 时 候也 可 以 省 略 形参 的 函 数名 。
