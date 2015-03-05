@@ -1,6 +1,6 @@
 title: (转)搭建Git服务器及设置public key
 date: 2015-02-26 10:03:16
-tags: 工具安装
+tags: ツールインストール
 ---
 
 <h2>搭建Git服务器</h2>

@@ -608,7 +608,7 @@ return 1;
 * REMARKS      : 備考
 * HISTORY      :
 * ID-----------DATE--------NAME----------NOTE --------------------------------
-* [V01.00.00]  2015.02.02  KOCHI.晏         西JR BUS
+* [V01.00.00]  2015.02.02  晏         
 *************************************************************************EOH*/
 
 static int wave_read_file_header(play_wave_info *wave_info)
