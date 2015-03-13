@@ -8,4 +8,4 @@ tags: Read Tech
 补--表达式短路
 例：（number == 0） && (number = a + 1)
 
---P116
+--P120
